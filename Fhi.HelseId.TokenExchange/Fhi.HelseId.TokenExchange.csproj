@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Configurations>Debug;Release</Configurations>
+    <Nullable>enable</Nullable>
+    <id>Fhi.HelseId.TokenExchange</id>
+    <Version>0.1.0-beta.1</Version>
+    <authors>Folkehelseinstituttet (FHI), Nasjonalt Helsenett (NHN)</authors>
+    <projectUrl>https://github.com/folkehelseinstituttet/Fhi.HelseId</projectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <icon>https://github.com/folkehelseinstituttet/Fhi.HelseId/images/fhi.png</icon>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageDescription>Authentication and authorization component for asp.net core workers access to NHN HelseId</PackageDescription>
+    <PackageCopyright>Copyright ©2021 Folkehelseinstituttet, Nasjonalt Helsenett NHN</PackageCopyright>
+    <!-- Tags appear in the gallery and can be used for tag searches -->
+    <tags>helseid, oauth</tags>
+    <RepositoryUrl>https://github.com/folkehelseinstituttet/Fhi.HelseId</RepositoryUrl>
+    <dependencies>
+      <group targetFramework="netcoreapp3.1">
+      </group>
+    </dependencies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\TerjeSandstrom\.nuget\packages\fhi.helseid\3.2.0\contentFiles\any\netcoreapp3.1\Web\HprServiceReference\ConnectedService.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fhi.HelseId" Version="3.2.0" />
+    <PackageReference Include="IdentityModel" Version="5.1.0" />
+    <PackageReference Include="IdentityModel.AspNetCore" Version="3.0.0" />
+  </ItemGroup>
+
+</Project>
