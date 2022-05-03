@@ -8,6 +8,7 @@ namespace Fhi.HelseId.Common
     {
         bool AuthUse { get; set; }
         bool UseHttps { get; set; }
+        bool RewriteRedirectUriHttps { get; set; }
         string Authority { get; set; }
         string ClientId { get; set; }
         string ClientSecret { get; set; }
@@ -19,15 +20,27 @@ namespace Fhi.HelseId.Common
     }
 
     public abstract class HelseIdClientKonfigurasjon : IHelseIdClientKonfigurasjon
+    public abstract class HelseIdCommonKonfigurasjon
     {
-        private List<string>? allScopes;
+        public string Authority { get; set; } = "";
         public bool AuthUse { get; set; } = true;
         public bool UseHttps { get; set; } = true;
-        public string Authority { get; set; } = "";
+    }
+
+    public abstract class HelseIdClientKonfigurasjon : HelseIdCommonKonfigurasjon, IHelseIdClientKonfigurasjon
+    {
+        protected List<string>? AllTheScopes { get; private set; }
+       
+        public bool RewriteRedirectUriHttps { get; set; } = false;
         public string ClientId { get; set; } = "";
         public string ClientSecret { get; set; } = "";
         public string[] Scopes { get; set; } = Array.Empty<string>();
         public bool Debug { get; set; } = false;
+
+        public virtual void MergeScopes()
+        {
+            AllTheScopes = null;
+        }
 
         public List<string> AllScopes
         {
